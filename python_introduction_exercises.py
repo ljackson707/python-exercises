@@ -64,8 +64,26 @@ print([n * 2 for n in range(10)])
 print([n * 2 for n in range(10) if n%2==0])
 
 #List Operations
+
+#To Add 
 numbers = [1, 2, 3]
 numbers.append(4)
 print(numbers)
+
+#To Remove
+numbers = [1, 2, 3, 4]
+numbers.pop()
+print(numbers)
+
+print('Here is a single quote --> \' <-- ')
+print("Here is a single quote --> ' <-- ")
+print()
+print("Here is a double quote --> \" <--")
+print('Here is a double quote --> " <--')
+print()
+print('Newlines are indicated by the character "n" preceded by a backslash, like so')
+print()
+print('This string\ncontains a newline')
+
 
 
