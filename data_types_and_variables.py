@@ -234,5 +234,6 @@ numbers_plus_5
 
 
 # BONUS Make a variable named "primes" that is a list containing the prime numbers in the numbers list. *Hint* you may want to make or find a helper function that determines if a given number is prime or not.
-prime_list = [number for number in numbers if all(number % numbers != 0 for numbers in range(2, number))]
+prime_list = [number for number in numbers if number > 0 and all(number % numbers != 0 for numbers in range(2, number))]
 prime_list
+
