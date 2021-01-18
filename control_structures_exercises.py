@@ -213,3 +213,26 @@ for book in books:
     print("title: {}".format(book["title"]))
     print("author: {}".format(book["author"]))
     print("genre: {}".format(book["genre"]))
+  
+#Bonus for Review
+    def twelveto24(string):
+    if string[-2:] == "AM" and string[:2] == "12": 
+        return "00" + string[3:5]
+    elif string[-2:] == "AM": 
+        return string[:-2] 
+    elif string[-2:] == "PM" and string[:2] == "12": 
+        return string[:-2]
+    else:
+        return str(int(string[:2]) + 12) + string[2:5] 
+print(twelveto24("09:45 AM"))
+
+#Bonus
+def col_index(c_name):
+    if c_name == ('A'):
+        print(1)
+    elif c_name == ('B'):
+        print(2)
+    elif c_name == ('AA'):
+        print(27)
+col_index("AA")
+
