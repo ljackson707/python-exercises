@@ -61,10 +61,45 @@ len(inactive_user)
 #10
 
 # Grand total of balances for all users
+def handle_commas1(num_string):
+    return float(num_string.replace(",","").replace("$",""))
 
-grand_total = []
-for balance in range(len(data)):
-    if data[user]['isActive'] == False:
-        inactive_user.append(data[user]['name'])
-print(inactive_user)
-len(inactive_user)
+balance_list = [handle_commas1(d['balance']) for d in data]
+sum(balance_list)
+
+# Average balance per user
+avg_bal = sum(balance_list)/float(len(balance_list))
+round(avg_bal, 2)
+
+# User with the lowest balance
+min_bal = min(balance_list)
+min_bal
+
+# User with the highest balance
+max_bal = max(balance_list)
+max_bal
+
+# Most common favorite fruit
+from collections import Counter
+favoriteFruit_list = [d['favoriteFruit'] for d in data]
+Counter(favoriteFruit_list)
+print(max(favoriteFruit_list))
+
+# Least common favorite fruit
+print(min(favoriteFruit_list))
+
+# Total number of unread messages for all users
+def normalize_greeting(string): # creat a funtion that normalizes the greeting to just show numbers.
+    string = string.lower()
+    string = string.strip()  
+    if not string:
+        return string
+    elif string[0] not in '1234567890':
+        return normalize_greeting(string[1:])
+    return string[0] + normalize_greeting(string[1:])
+print(normalize_greeting('s2dk4fj3kjd0'))
+
+greetings = [int(normalize_greeting(d['greeting'])) # use this to sum the normal greetings and their repective numbers.
+             for d in data]
+total_unread = sum(greetings)
+total_unread
