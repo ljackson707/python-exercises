@@ -19,13 +19,15 @@ is_two(2)
 from itertools import product
 arr1 = "abc"
 arr2 = "123"
-def Product(arr1, arr2):
+def Prod(arr1, arr2):
     return list(product(arr1, arr2))
-print(Product(arr1, arr2))
+print(Prod(arr1, arr2))
+len((Prod(arr1, arr2)))
 
 #B) How many different ways can you combine two of the letters from "abcd"?
 from itertools import combinations
 print (list(combinations("abcd", 2)))
+len (list(combinations("abcd", 2)))
 
 #3)Save this file as profiles.json inside of your exercises directory. Use the load function from the json module to open this file, it will produce a list of dictionaries. Using this data, write some code that calculates and outputs the following information:
 import json
@@ -33,7 +35,7 @@ with open('profiles.json') as f:
     data = json.load(f)
 print(data[0])
 
-# Total number of Users
+#4) Total number of Users
 users = []
 for user in range(len(data)):
     if data[user]:
@@ -42,7 +44,7 @@ print(users)
 len(users)
 #19
 
-# Total active users
+#5) Total active users
 active_user = []
 for user in range(len(data)):
     if data[user]['isActive'] == True:
@@ -51,7 +53,7 @@ print(active_user)
 len(active_user)
 #9
 
-# Total inactive users
+#6) Total inactive users
 inactive_user = []
 for user in range(len(data)):
     if data[user]['isActive'] == False:
@@ -60,35 +62,35 @@ print(inactive_user)
 len(inactive_user)
 #10
 
-# Grand total of balances for all users
+#7) Grand total of balances for all users
 def handle_commas1(num_string):
     return float(num_string.replace(",","").replace("$",""))
 
 balance_list = [handle_commas1(d['balance']) for d in data]
 sum(balance_list)
 
-# Average balance per user
+#8) Average balance per user
 avg_bal = sum(balance_list)/float(len(balance_list))
 round(avg_bal, 2)
 
-# User with the lowest balance
+#9) User with the lowest balance
 min_bal = min(balance_list)
 min_bal
 
-# User with the highest balance
+#10) User with the highest balance
 max_bal = max(balance_list)
 max_bal
 
-# Most common favorite fruit
+#11) Most common favorite fruit
 from collections import Counter
 favoriteFruit_list = [d['favoriteFruit'] for d in data]
 Counter(favoriteFruit_list)
 print(max(favoriteFruit_list))
 
-# Least common favorite fruit
+#12) Least common favorite fruit
 print(min(favoriteFruit_list))
 
-# Total number of unread messages for all users
+#13) Total number of unread messages for all users
 def normalize_greeting(string): # creat a funtion that normalizes the greeting to just show numbers.
     string = string.lower()
     string = string.strip()  
